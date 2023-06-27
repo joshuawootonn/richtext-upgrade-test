@@ -42,8 +42,8 @@ const RichtextUpgrade = forwardRef(function HelloWorld(
 });
 
 ReactRuntime.registerComponent(RichtextUpgrade, {
-  type: "rich-text-component",
-  label: "rich-text-component",
+  type: "rich-text-v2",
+  label: "rich-text-v2",
   props: {
     // richtext: RichText(),
     richtext: unstable_RichTextV2({
@@ -55,5 +55,15 @@ ReactRuntime.registerComponent(RichtextUpgrade, {
         LinkPlugin(),
       ],
     }),
+    className: Style({ properties: [Style.Width, Style.Margin] }),
+  },
+});
+
+ReactRuntime.registerComponent(RichtextUpgrade, {
+  type: "rich-text-v1",
+  label: "rich-text-v1",
+  props: {
+    richtext: RichText(),
+    className: Style({ properties: [Style.Width, Style.Margin] }),
   },
 });
